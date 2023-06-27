@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/repopo/static/css/main.9f9257d0.css",
-    "main.js": "/repopo/static/js/main.e1538700.js",
+    "main.js": "/repopo/static/js/main.61846b57.js",
     "static/js/787.4c5b6ef8.chunk.js": "/repopo/static/js/787.4c5b6ef8.chunk.js",
     "index.html": "/repopo/index.html",
     "main.9f9257d0.css.map": "/repopo/static/css/main.9f9257d0.css.map",
-    "main.e1538700.js.map": "/repopo/static/js/main.e1538700.js.map",
+    "main.61846b57.js.map": "/repopo/static/js/main.61846b57.js.map",
     "787.4c5b6ef8.chunk.js.map": "/repopo/static/js/787.4c5b6ef8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f9257d0.css",
-    "static/js/main.e1538700.js"
+    "static/js/main.61846b57.js"
   ]
 }
