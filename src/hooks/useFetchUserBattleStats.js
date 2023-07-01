@@ -7,7 +7,7 @@ const useFetchUserBattleStats = (apiKey) => {
     const fetchData = async () => {
       if (!apiKey) return;
       try {
-        const responseUserStats = await fetch(`https://api.torn.com/user/2080313?selections=battlestats&comment=TornAPI&key=${apiKey}`);
+        const responseUserStats = await fetch(`https://api.torn.com/user/?selections=battlestats&comment=TornAPI&key=${apiKey}`);
         const dataUserStats = await responseUserStats.json();
         
         // Check for error in the API response and throw it as a string
