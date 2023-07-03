@@ -8,7 +8,7 @@ const BattleStatsComponent = () => {
   useEffect(() => {
     // API request logic to fetch attacker's stats
     const fetchData = async () => {
-      const response = await fetch("https://api.torn.com/user/2080313?selections=battlestats&comment=TornAPI&key=d1c336ETaWaZtu22");
+      const response = await fetch("https://api.torn.com/user/2080313?selections=battlestats&comment=TornAPI&key=ENTERAPIKEY");
       const data = await response.json();
       setAttackerStats(data);
     }
@@ -19,7 +19,7 @@ const BattleStatsComponent = () => {
     // API request logic to fetch fair fight multiplier
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.torn.com/user/?selections=attacks&limit=1&comment=TornAPI&key=d1c336ETaWaZtu22");
+        const response = await fetch("https://api.torn.com/user/?selections=attacks&limit=1&comment=TornAPI&key=ENTERAPIKEY");
         const data = await response.json();
     
         // Loop over the keys of 'attacks' and find the first 'fair_fight' value

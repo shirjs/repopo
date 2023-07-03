@@ -1,6 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../App';
 
 const BattleStatsComponentManual = () => {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    getCountries();
+  }, []);
+
+  async function getCountries() {
+    const { data } = await supabase.from("countries").select();
+    setCountries(data);
+  }
+
   const [attackerStats, setAttackerStats] = useState({
     defense: '',
     speed: '',
@@ -107,6 +119,13 @@ const BattleStatsComponentManual = () => {
       <button onClick={calculateDefenderBattleStatScore}>Calculate</button>
       <p>Estimated Defender's Battle Stat Score: {defenderBattleStatScore}</p>
       <p>Estimated Attacker's Battle Stat Score: {attackerBattleStatScore}</p>
+
+    {/* Display the countries */}
+    <ul>
+        {countries.map((country) => (
+          <li key={country.name}>{country.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
