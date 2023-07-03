@@ -7,7 +7,7 @@ import BattleStatsComponent from './components/BattleStatsComponent';
 import DisplayFairFightData from './components/DisplayFairFightData';
 
 // Create Supabase client
-const supabase = createClient("https://soqmgkirxrhuaarmulfi.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcW1na2lyeHJodWFhcm11bGZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODgzNzMzMDUsImV4cCI6MjAwMzk0OTMwNX0.T1Jj5ucgrtZTx2bIZGGGzZwI-o0NGRlyc-cNrXRYub4");
+const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_ANON_KEY);
 
 function App() {
   const [countries, setCountries] = useState([]);
