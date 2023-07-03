@@ -6,6 +6,8 @@ import BattleStatsComponentManual from './components/BattleStatsComponentManual'
 import BattleStatsComponent from './components/BattleStatsComponent';
 import DisplayFairFightData from './components/DisplayFairFightData';
 
+// just an edit to tirgger an update
+
 // Create Supabase client
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_ANON_KEY);
 
