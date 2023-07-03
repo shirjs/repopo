@@ -7,7 +7,7 @@ import DisplayFairFightData from './components/DisplayFairFightData';
 
 
 
-// Create Supabase client
+// Create Supabase clientss
 export const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_ANON_KEY);
 
 function App() {
