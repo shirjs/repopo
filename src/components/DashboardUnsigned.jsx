@@ -50,9 +50,28 @@ export default function DashboardUnsigned() {
     }
   };
 
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      else alert("You're signed out");
+    } catch (error) {
+      alert(error.error_description || error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   if (user) {
     return (
-    <div>Welcome, {user.email}!</div>
+    <div><p>Welcome, {user.email}!</p>
+    <button onClick={handleSignOut} disabled={loading}>
+          Sign Out
+        </button>
+    
+    </div>
     );
   }
   
