@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from '../supabaseClient';
+import ApiKeyForm from "./ApiKeyForm";
 
 export default function DashboardUnsigned() {
   const [email, setEmail] = useState("");
@@ -70,6 +71,8 @@ export default function DashboardUnsigned() {
     <button onClick={handleSignOut} disabled={loading}>
           Sign Out
         </button>
+
+        <ApiKeyForm user={user} />
     
     </div>
     );
