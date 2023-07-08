@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import useFetchFairFightData from '../hooks/useFetchFairFightData';
 import useInput from '../hooks/useInput';
 
+
 const DisplayFairFightData = () => {
+
+  
   const { value: apiKey, bind: bindApiKey } = useInput('');
   const [isKeySubmitted, setIsKeySubmitted] = useState(false);
 

@@ -66,8 +66,10 @@ export default function DashboardUnsigned() {
   }
 
   if (user) {
+    
     return (
-    <div><p>Welcome, {user.email}!</p>
+    <div>
+      <p>Welcome, {user.email}!</p>
     <button onClick={handleSignOut} disabled={loading}>
           Sign Out
         </button>

@@ -1,46 +1,39 @@
-import React, { useState } from "react";
-import { supabase } from "../supabaseClient";
+// ApiKeyForm.js
+import React from 'react';
+import { supabase } from '../supabaseClient';
+import { useUser } from './UserContext';
 
-function ApiKeyForm({ user }) {  // accept the user prop
-  const [apiKey, setApiKey] = useState("");
+const ApiKeyForm = ({ user }) => {
+  const { apiKey, setApiKey } = useUser();
+  const [newApiKey, setNewApiKey] = React.useState(apiKey || '');
 
-  async function handleSubmit(event) {
+  const handleSubmit = async event => {
     event.preventDefault();
-
-    if (!user) {
-      console.log('User is not authenticated');
-      return;
-    }
-
+    
+    // insert or update API key in the UserApiKey table
     const { data, error } = await supabase
-      .from("UserApiKey")
+      .from('UserApiKey')
       .upsert([
-        { 
-          user_id: user.user.id, 
-          api_key: apiKey 
-        },
-      ]);
+        { user_id: user.id, api_key: newApiKey },
+      ], { returning: 'minimal' }); // minimal will return only the count of inserted/updated rows
 
     if (error) {
-      console.error('Error adding API key: ', error);
+      console.log("Error saving API Key: ", error.message);
     } else {
-      console.log('API key added: ', data);
+      // update API key in the context
+      setApiKey(newApiKey);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         API Key:
-        <input
-          type="text"
-          value={apiKey}
-          onChange={e => setApiKey(e.target.value)}
-        />
+        <input type="text" value={newApiKey} onChange={(e) => setNewApiKey(e.target.value)} />
       </label>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Save API Key" />
     </form>
   );
-}
+};
 
 export default ApiKeyForm;
