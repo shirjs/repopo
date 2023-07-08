@@ -15,7 +15,7 @@ const useFetchFairFightData = (isKeySubmitted) => {
       if (!isKeySubmitted) return;  // only fetch if the key is submitted
 
       try {
-        const response = await fetch(`https://api.torn.com/user/?selections=attacks&limit=5&comment=TornAPI&key=${apiKey}`);
+        const response = await fetch(`https://api.torn.com/user/?selections=attacks&limit=50&comment=TornAPI&key=${apiKey}`);
         const data = await response.json();
         
         if (data.error) {
