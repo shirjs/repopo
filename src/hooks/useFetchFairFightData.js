@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import useFetchUserBasicInfo from './useFetchUserBasicInfo';
 import useFetchUserBattleStats from './useFetchUserBattleStats';
+import { useUserApiKey } from './useUserApiKey';
 
-const useFetchFairFightData = (apiKey, isKeySubmitted) => {
+
+const useFetchFairFightData = (isKeySubmitted) => {
+  const apiKey = useUserApiKey();
   const userName = useFetchUserBasicInfo(apiKey);
   const attackerStats = useFetchUserBattleStats(apiKey);
   const [fairFightsData, setFairFightsData] = useState({});

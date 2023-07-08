@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
-import { useUser } from './UserContext';
+import React from 'react';
+import { useUserApiKey } from '../hooks/useUserApiKey';
 
 function Testing() {
-  const { user } = useUser();
-
-  useEffect(() => {
-    if (user && user.user) {
-      console.log(user.user.id); // you can check the structure of the user object in the console
-    }
-  }, [user]);
-  
+  const apiKey = useUserApiKey();
 
   return (
     <div>
-      {user ? <h1>User ID: {user.id}</h1> : <h1>No user signed in</h1>}
+      {apiKey ? <h1>User API Key: {apiKey}</h1> : <h1>Loading...</h1>}
     </div>
   );
 }

@@ -1,12 +1,8 @@
+// DisplayFairFightData.js
 import React, { useState } from 'react';
 import useFetchFairFightData from '../hooks/useFetchFairFightData';
-import useInput from '../hooks/useInput';
-
 
 const DisplayFairFightData = () => {
-
-  
-  const { value: apiKey, bind: bindApiKey } = useInput('');
   const [isKeySubmitted, setIsKeySubmitted] = useState(false);
 
   const submitApiKey = event => {
@@ -14,17 +10,11 @@ const DisplayFairFightData = () => {
     setIsKeySubmitted(true);
   };
 
-  const fairFightsData = useFetchFairFightData(apiKey, isKeySubmitted);
+  const fairFightsData = useFetchFairFightData(isKeySubmitted);
 
   return (
     <div>
-      <form onSubmit={submitApiKey}>
-        <label>
-          API Key:
-          <input type="text" {...bindApiKey} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <button onClick={submitApiKey}>Fetch Data</button>
 
       {isKeySubmitted && Object.keys(fairFightsData).length > 0 && (
         <div>
