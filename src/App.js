@@ -7,6 +7,7 @@ import DashboardUnsigned from './components/DashboardUnsigned';
 import { UserProvider } from './components/UserContext';
 import Testing from './components/Testing';
 import GroupPage from './components/GroupPage';
+import RequestToJoinGroup from './components/RequestToJoinGroup';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<DashboardUnsigned />} />
           <Route path="/Testing" element={<Testing />} />
           <Route path="/Group" element={<GroupPage />} />
+          <Route path="/request-to-join-group" element={<RequestToJoinGroup />} />
           {/* More <Route> components go here for other paths */}
         </Routes>
       </Router>
