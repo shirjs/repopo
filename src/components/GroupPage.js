@@ -6,9 +6,10 @@ const GroupPage = () => {
     const currentUserId = useUserId();
     const { createGroup, loading, error } = useCreateGroup();
     const [groupCreated, setGroupCreated] = useState(false);
+    const [groupName, setGroupName] = useState('');
 
     const handleCreateGroup = async () => {
-        const newGroup = await createGroup(currentUserId);
+        const newGroup = await createGroup(currentUserId, groupName);
         if (newGroup) {
             setGroupCreated(true);
         }
@@ -17,8 +18,14 @@ const GroupPage = () => {
     return (
         <div>
             <h1>Group Page</h1>
+            <input
+                type="text"
+                placeholder="Group Name"
+                value={groupName}
+                onChange={e => setGroupName(e.target.value)}
+            />
             {!groupCreated ? (
-                <button onClick={handleCreateGroup} disabled={loading}>
+                <button onClick={handleCreateGroup} disabled={loading || !groupName}>
                     {loading ? 'Creating...' : 'Create Group'}
                 </button>
             ) : (

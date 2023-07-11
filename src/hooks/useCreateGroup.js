@@ -5,13 +5,13 @@ const useCreateGroup = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const createGroup = async (leader_id) => {
+    const createGroup = async (leader_id, group_name) => {
         setLoading(true);
         try {
             const { data, error } = await supabase
                 .from('user_group')
                 .insert([
-                    { leader_id: leader_id },
+                    { leader_id: leader_id, group_name: group_name },
                 ]);
             if (error) {
                 throw error;
